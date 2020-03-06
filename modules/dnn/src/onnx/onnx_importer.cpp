@@ -538,6 +538,10 @@ void ONNXImporter::populateNet(Net dstNet)
             layerParams.type = "ReLU";
             replaceLayerParam(layerParams, "alpha", "negative_slope");
         }
+        else if (layer_type == "Abs")
+        {
+            layerParams.type = "AbsVal";
+        }
         else if (layer_type == "LRN")
         {
             replaceLayerParam(layerParams, "size", "local_size");
